@@ -1,0 +1,13 @@
+{
+  "name": "LocationInformation",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "^4.10.6",
+    "express-session": "*",
+    "mysql": "^2.5.4"
+  }
+}
