@@ -12,7 +12,7 @@ var app 			= express();
 //*****MySQL*****//
 var connection;
 var db_config = {
-	host	: 'us-cdbr-iron-east-03.cleardb.net',
+	host	: 'us-cdbr-iron-east-05.cleardb.net',
 	user	: 'b2087b1987ef17',
 	password: '176399a5',
 	database: 'heroku_76f3e347e1eb905'
