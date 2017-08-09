@@ -58,8 +58,26 @@ app.use(express.static('./', {
 
 /*******************INICIO**********************/
 app.get("/", function(req, res) {
-	res.send("ISSO EH UMA STRING");
+	res.send("Bem vindo");
 });
+
+//POST posts
+app.post("/postar", function(req, res) {
+	console.log(req.body);
+});
+
+/*******************QUERIES********************/
+//Inserir postagem
+function postarDB(post, callback) {
+	connection.query('INSERT INTO posts SET ?', post, function(err, rows, fields) {
+		if(!err) {
+			callback(true);
+		} else {
+			console.log(err);
+			callback(false);
+		}
+	});
+}
 
 /*************************INICIA SERVIDOR*****************************/
 var port = process.env.PORT || 3000;
