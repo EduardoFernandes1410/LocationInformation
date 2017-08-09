@@ -58,8 +58,7 @@ app.use(express.static('./', {
 
 /*******************INICIO**********************/
 app.get("/", function(req, res) {
-	req.session.loginSucesso = false;
-	res.sendFile(path.join(__dirname, login));
+	res.send("ISSO EH UMA STRING");
 });
 
 /*************************INICIA SERVIDOR*****************************/
