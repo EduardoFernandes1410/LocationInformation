@@ -13,9 +13,9 @@ var app 			= express();
 var connection;
 var db_config = {
 	host	: 'us-cdbr-iron-east-03.cleardb.net',
-	user	: 'bae2902327afa9',
-	password: 'aa09eff1',
-	database: 'heroku_c4f1d12a0ffd9dd'
+	user	: 'b2087b1987ef17',
+	password: '176399a5',
+	database: 'heroku_76f3e347e1eb905'
 };
 
 //Conecta ao Banco de Dados
