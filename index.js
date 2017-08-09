@@ -63,7 +63,9 @@ app.get("/", function(req, res) {
 
 //POST posts
 app.post("/postar", function(req, res) {
-	console.log(req.body);
+	postarDB(req.body, function(answer) {
+		res.send(answer);
+	});
 });
 
 /*******************QUERIES********************/
