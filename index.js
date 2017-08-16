@@ -89,7 +89,7 @@ function postarDB(post, callback) {
 }
 
 //Get postagens
-function postarDB(callback) {
+function getPostsDB(callback) {
 	connection.query('SELECT * FROM posts', function(err, rows, fields) {
 		if(!err) {
 			callback(rows);
