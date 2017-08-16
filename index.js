@@ -68,12 +68,31 @@ app.post("/postar", function(req, res) {
 	});
 });
 
+//GET posts
+app.get("/get-posts", function(req, res) {
+	getPostsDB(function(answer) {
+		res.send(answer);
+	});
+});
+
 /*******************QUERIES********************/
 //Inserir postagem
 function postarDB(post, callback) {
 	connection.query('INSERT INTO posts SET ?', post, function(err, rows, fields) {
 		if(!err) {
 			callback(true);
+		} else {
+			console.log(err);
+			callback(false);
+		}
+	});
+}
+
+//Get postagens
+function postarDB(callback) {
+	connection.query('SELECT * FROM posts', function(err, rows, fields) {
+		if(!err) {
+			callback(rows);
 		} else {
 			console.log(err);
 			callback(false);
