@@ -75,7 +75,7 @@ app.get("/get-posts", function(req, res) {
 			postagens: answer
 		}
 
-		res.send(JSON.stringfy(resposta));
+		res.send(JSON.stringify(resposta));
 	});
 });
 
