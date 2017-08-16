@@ -71,12 +71,11 @@ app.post("/postar", function(req, res) {
 //GET posts
 app.get("/get-posts", function(req, res) {
 	getPostsDB(function(answer) {
-		console.log(JSON.parse(answer));
-		/*var resposta = {
-			postagens: JSON.parse(answer)
+		var resposta = {
+			postagens: answer
 		}
 
-		res.send(JSON.stringfy(resposta));*/
+		res.send(JSON.stringfy(resposta));
 	});
 });
 
