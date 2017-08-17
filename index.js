@@ -5,7 +5,7 @@ var url				= require('url');
 var path			= require('path');
 var express			= require('express');
 var mysql			= require('mysql');
-var bodyParser		= require('body-parser');
+var bodyParser			= require('body-parser');
 var session			= require('express-session');
 var app 			= express();
 
@@ -72,7 +72,7 @@ app.post("/postar", function(req, res) {
 app.get("/get-posts", function(req, res) {
 	getPostsDB(function(answer) {
 		var resposta = {
-			postagens: answer
+			Items: answer
 		}
 
 		res.send(JSON.stringify(resposta));
