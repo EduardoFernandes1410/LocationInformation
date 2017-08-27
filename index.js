@@ -86,9 +86,10 @@ app.post("/post-distancias", function(req, res) {
 	
 	getPostsDB(function(answer) {
 		var vetorDistancias = [];
+		answer.forEach(elem => vetorDistancias.push((calculaDistancia(latRequest, lonRequest, elem.lat, elem.lon) * 1000)));
 		
-		answer.forEach(elem => vetorDistancias.push(calculaDistancia(latRequest, lonRequest, elem.lat, elem.lon)));
-		res.send(JSON.stringify(vetorDistancias));
+		var resposta = vetorDistancias.filter((elem, index) => elem <= answer[index].range);
+		res.send(resposta);
 	});
 });
 
