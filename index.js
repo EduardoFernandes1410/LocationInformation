@@ -88,7 +88,7 @@ app.post("/post-distancias", function(req, res) {
 		var vetorDistancias = [];
 		answer.forEach(elem => vetorDistancias.push((calculaDistancia(latRequest, lonRequest, elem.lat, elem.lon) * 1000)));
 		
-		var resposta = vetorDistancias.filter((elem, index) => elem <= answer[index].range);
+		var resposta = answer.filter((elem, index) => vetorDistancias[index] <= elem.range);
 		res.send(resposta);
 	});
 });
