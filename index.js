@@ -81,10 +81,13 @@ app.get("/get-posts", function(req, res) {
 
 //POST distancias
 app.post("/post-distancias", function(req, res) {
+	var latRequest = req.body.lat;
+	var lonRequest = req.body.lon;
+	
 	getPostsDB(function(answer) {
 		var vetorDistancias = [];
 		
-		answer.forEach(elem => vetorDistancias.push(calculaDistancia(-19.848443, -43.905192, elem.lat, elem.lon)));
+		answer.forEach(elem => vetorDistancias.push(calculaDistancia(latRequest, lonRequest, elem.lat, elem.lon)));
 		res.send(JSON.stringify(vetorDistancias));
 	});
 });
