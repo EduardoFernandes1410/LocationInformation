@@ -79,6 +79,16 @@ app.get("/get-posts", function(req, res) {
 	});
 });
 
+//POST distancias
+app.post("/post-distancias", function(req, res) {
+	getPostsDB(function(answer) {
+		var vetorDistancias = [];
+		
+		answer.forEach(elem => vetorDistancias.push(calculaDistancia(-19.877046, -43.931232, elem.lat, elem.lon)));
+		res.send(JSON.stringify(vetorDistancias));
+	});
+});
+
 /*******************QUERIES********************/
 //Inserir postagem
 function postarDB(post, callback) {
@@ -102,6 +112,25 @@ function getPostsDB(callback) {
 			callback(false);
 		}
 	});
+}
+
+/*********************FUNCOES**********************/
+//Calcula radianos
+function rad(radiano) {
+	return radiano*Math.PI/180;
+}
+
+//Calcula distancia
+function calculaDistancia(lat1, lon1, lat2, lon2) {
+	var R		= 6378.137;
+	var dLat  	= rad( lat2 - lat1 );
+	var dLong 	= rad( lon2 - lon1 );
+
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+	var d = R * c;
+
+	return d.toFixed(6);
 }
 
 /*************************INICIA SERVIDOR*****************************/
