@@ -81,8 +81,8 @@ app.get("/get-posts", function(req, res) {
 
 //POST distancias
 app.post("/post-distancias", function(req, res) {
-	var latRequest = req.body.lat;
-	var lonRequest = req.body.lon;
+	var latRequest = parseInt(req.body.lat);
+	var lonRequest = parseInt(req.body.lon);
 	
 	getPostsDB(function(answer) {
 		var vetorDistancias = [];
