@@ -93,6 +93,10 @@ app.post("/post-distancias", function(req, res) {
 		var resposta = answer.filter((elem, index) => vetorDistancias[index] <= elem.range);
 		resposta.forEach((elem, index) => elem.distancia = parseInt(vetorDistancias[index]));
 		
+		var respostaSender = {
+			Items: resposta
+		}
+
 		res.send(resposta);
 	});
 });
