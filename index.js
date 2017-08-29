@@ -97,7 +97,7 @@ app.post("/post-distancias", function(req, res) {
 			Items: resposta
 		}
 
-		res.send(resposta);
+		res.send(respostaSender);
 	});
 });
 
